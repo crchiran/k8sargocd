@@ -6,7 +6,7 @@ metadata:
   annotations:
     ingressClassName: nginx
 #    cert-manager.io/acme-challenge-type: "http01"
-#    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
     - host: test.hudai.info
@@ -19,8 +19,8 @@ spec:
                 name: test-service
                 port:
                   number: 80
-#  tls:
-#    - hosts:
-#        - test.hudai.info
-#      secretName: test-hudai-tls
+  tls:
+    - hosts:
+        - test.hudai.info
+      secretName: test-hudai-tls
 
