@@ -4,10 +4,9 @@ metadata:
   name: test-hudai-ingress
   namespace: test
   annotations:
-    ingressClassName: nginx
-#    cert-manager.io/acme-challenge-type: "http01"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: nginx  # Updated field to specify the Ingress class
   rules:
     - host: test.hudai.info
       http:
@@ -22,5 +21,4 @@ spec:
   tls:
     - hosts:
         - test.hudai.info
-      secretName: test-hudai-tls
-
+      secretName: test-hudai-tls  # Make sure the Secret name matches the one you created
